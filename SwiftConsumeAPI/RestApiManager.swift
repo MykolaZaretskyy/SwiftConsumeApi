@@ -24,7 +24,7 @@ class ToDoItem {
 class RestApiManager: NSObject {
     private let baseURL = "https://jsonplaceholder.typicode.com/"
     
-    func getTodos() {
+    func getTodos(onCompletion: (JSON) -> Void) {
         let todosUrlString = baseURL + "todos"
         makeHTTPGetRequest(path: todosUrlString, onCompletion:
             {(data, response, error) in
@@ -64,11 +64,25 @@ class RestApiManager: NSObject {
     }
     
     // MARK: Perform a GET Request
-    private func makeHTTPGetRequest(path: String, onCompletion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    private func makeHTTPGetRequest(path: String, onCompletion: @escaping (JSON, Error?) -> Void) {
         let request = URLRequest(url: URL(string: path)!)
         let session = URLSession.shared
         
-        let task = session.dataTask(with: request, completionHandler: onCompletion)
+        let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            guard let jsonData = data else {
+                onCompletion(JSON.null, error)
+                return
+            }
+            
+            do {
+                let json = try JSON(data: jsonData)
+                onCompletion(json, error)
+            } catch {
+                print("error parsing JSON")
+                return
+            }
+            
+        })
         task.resume()
     }
 }
