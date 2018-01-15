@@ -1,0 +1,6 @@
+framework module Pods_SwiftConsumeAPI {
+  umbrella header "Pods-SwiftConsumeAPI-umbrella.h"
+
+  export *
+  module * { export * }
+}
