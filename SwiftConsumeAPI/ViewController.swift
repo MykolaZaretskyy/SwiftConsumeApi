@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ViewController: UIViewController {
     let apiManager = RestApiManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        apiManager.getTodos()
+        apiManager.getTodos(onCompletion: {(todos) in
+            var items = todos
+        })
     }
 }
 
