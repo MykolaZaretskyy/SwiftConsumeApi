@@ -12,7 +12,10 @@
 		37CA80DC200A58F30082DD33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CA80DA200A58F30082DD33 /* Main.storyboard */; };
 		37CA80DE200A58F30082DD33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CA80DD200A58F30082DD33 /* Assets.xcassets */; };
 		37CA80E1200A58F30082DD33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CA80DF200A58F30082DD33 /* LaunchScreen.storyboard */; };
-		37CA80E9200A642A0082DD33 /* RestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CA80E8200A642A0082DD33 /* RestApiManager.swift */; };
+		37CBB8F7201E31A900066539 /* ApiOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CBB8F6201E31A900066539 /* ApiOperation.swift */; };
+		37CBB8F9201E3E0C00066539 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CBB8F8201E3E0C00066539 /* ApiManager.swift */; };
+		37CBB8FC201E812D00066539 /* GetToDosOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CBB8FB201E812D00066539 /* GetToDosOperation.swift */; };
+		37CBB8FF201E852800066539 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CBB8FE201E852800066539 /* ToDoItem.swift */; };
 		7F35E5FE6D62AFCACED9FF5F /* Pods_SwiftConsumeAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2300B16904D13563F07410 /* Pods_SwiftConsumeAPI.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +27,10 @@
 		37CA80DD200A58F30082DD33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37CA80E0200A58F30082DD33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37CA80E2200A58F30082DD33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		37CA80E8200A642A0082DD33 /* RestApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiManager.swift; sourceTree = "<group>"; };
+		37CBB8F6201E31A900066539 /* ApiOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiOperation.swift; sourceTree = "<group>"; };
+		37CBB8F8201E3E0C00066539 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		37CBB8FB201E812D00066539 /* GetToDosOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetToDosOperation.swift; sourceTree = "<group>"; };
+		37CBB8FE201E852800066539 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		6DFF1156DA857DA830BCE091 /* Pods-SwiftConsumeAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftConsumeAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftConsumeAPI/Pods-SwiftConsumeAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		9A2300B16904D13563F07410 /* Pods_SwiftConsumeAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftConsumeAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A77D72FBCB6EF49DAC450C /* Pods-SwiftConsumeAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftConsumeAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftConsumeAPI/Pods-SwiftConsumeAPI.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,15 +78,42 @@
 		37CA80D5200A58F30082DD33 /* SwiftConsumeAPI */ = {
 			isa = PBXGroup;
 			children = (
+				37CBB8F5201E30CD00066539 /* API */,
 				37CA80D6200A58F30082DD33 /* AppDelegate.swift */,
 				37CA80D8200A58F30082DD33 /* ViewController.swift */,
 				37CA80DA200A58F30082DD33 /* Main.storyboard */,
 				37CA80DD200A58F30082DD33 /* Assets.xcassets */,
 				37CA80DF200A58F30082DD33 /* LaunchScreen.storyboard */,
 				37CA80E2200A58F30082DD33 /* Info.plist */,
-				37CA80E8200A642A0082DD33 /* RestApiManager.swift */,
 			);
 			path = SwiftConsumeAPI;
+			sourceTree = "<group>";
+		};
+		37CBB8F5201E30CD00066539 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				37CBB8FD201E84F500066539 /* Models */,
+				37CBB8FA201E80ED00066539 /* Operations */,
+				37CBB8F8201E3E0C00066539 /* ApiManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		37CBB8FA201E80ED00066539 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				37CBB8F6201E31A900066539 /* ApiOperation.swift */,
+				37CBB8FB201E812D00066539 /* GetToDosOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		37CBB8FD201E84F500066539 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				37CBB8FE201E852800066539 /* ToDoItem.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		76222B706EA7D65A94F2E87F /* Frameworks */ = {
@@ -220,9 +253,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37CBB8F7201E31A900066539 /* ApiOperation.swift in Sources */,
 				37CA80D9200A58F30082DD33 /* ViewController.swift in Sources */,
+				37CBB8FF201E852800066539 /* ToDoItem.swift in Sources */,
+				37CBB8F9201E3E0C00066539 /* ApiManager.swift in Sources */,
 				37CA80D7200A58F30082DD33 /* AppDelegate.swift in Sources */,
-				37CA80E9200A642A0082DD33 /* RestApiManager.swift in Sources */,
+				37CBB8FC201E812D00066539 /* GetToDosOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
